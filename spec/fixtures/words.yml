@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  spelling: MyString
+  pronunciation: MyString
+  syllables: 
+
+two:
+  spelling: MyString
+  pronunciation: MyString
+  syllables: 
