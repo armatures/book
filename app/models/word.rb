@@ -7,12 +7,12 @@ class Word < ActiveRecord::Base
 		end
 	end
 
-  def syllables_spelled
-  	syllables = []
+  def sounds
+  	sounds = []
   	pronunciation.split.each do |s|
-  		syllables << Syllable.new(s)
+  		sounds << Sound.new(s)
   	end
-  	syllables
+  	sounds
   end
 
 

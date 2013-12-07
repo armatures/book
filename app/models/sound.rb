@@ -1,4 +1,4 @@
-class Syllable
+class Sound
   attr_accessor :spelling
   
 	def initialize(spelling)

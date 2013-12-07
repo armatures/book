@@ -18,9 +18,9 @@ describe Word do
 
 	describe 'syllables_spelled' do
 		it 'returns syllables with a #vowel? method' do
-			expect(word.syllables_spelled[0].vowel?).to be_false
-			expect(word.syllables_spelled[1].vowel?).to be_true
+			expect(word.sounds[0].vowel?).to be_false
+			expect(word.sounds[1].vowel?).to be_true
 		end
-
+		
 	end
 end
