@@ -1,6 +1,6 @@
 class WordRepo
-  def initialize(collection)
-    @collection = collection
+  def initialize(options)
+    @collection = options[:collection]
   end
 
   def fetch(expression)
