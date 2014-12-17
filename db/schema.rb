@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210051519) do
+ActiveRecord::Schema.define(version: 20141217164232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "phoneme_types", force: true do |t|
+    t.string "phoneme_type"
+  end
 
   create_table "words", force: true do |t|
     t.string   "spelling"
