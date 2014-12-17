@@ -1,5 +1,6 @@
+require 'spec_helper'
 describe WordRepo do
-  describe 'fetch, the domain-specific language you can specify rhymes with' do
+  describe 'fetch (a DSL to specify rhymes with)' do
     let(:word1){ double(:word, pronunciation: 'AH1 L')}
     let(:word2){ double(:word, pronunciation: 'EE1 L')}
     let(:word3){ double(:word, pronunciation: 'EE1 K')}
@@ -15,6 +16,15 @@ describe WordRepo do
 
       words = [artist, purchase]
       expect(WordRepo.new(collection: words).fetch('AA1.AH0 S T')).to eq([artist])
+    end
+
+    describe 'without a passed-in collection' do
+      subject { WordRepo.new }
+      it 'interfaces with ActiveRecord by default' do
+        FactoryGirl.create(:word)
+
+        expect(subject.fetch('W').first).to be_a Word
+      end
     end
   end
 end
