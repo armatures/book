@@ -1,13 +1,19 @@
 require 'spec_helper'
 describe WordRepo do
   describe 'fetch (a DSL to specify rhymes with)' do
-    let(:word1){ double(:word, pronunciation: 'AH1 L')}
-    let(:word2){ double(:word, pronunciation: 'EE1 L')}
-    let(:word3){ double(:word, pronunciation: 'EE1 K')}
+    let(:awl){ double(:word, pronunciation: 'AH1 L')}
+    let(:eel){ double(:word, pronunciation: 'EE1 L')}
+    let(:eek){ double(:word, pronunciation: 'EE1 K')}
+    let(:leek){ double(:word, pronunciation: 'L EE1 K')}
 
     it 'has an implied initial wildcard' do
-      words = [word1, word2, word3]
-      expect(WordRepo.new(collection: words).fetch('l')).to eq([word1, word2])
+      words = [awl, eel, eek]
+      expect(WordRepo.new(collection: words).fetch('l')).to eq([awl, eel])
+    end
+
+    it 'does not have an implied final wildcard' do
+      words = [eel, leek]
+      expect(WordRepo.new(collection: words).fetch('l')).to eq([eel])
     end
 
     it 'treats . as a group of consonants' do
@@ -23,7 +29,7 @@ describe WordRepo do
       it 'interfaces with ActiveRecord by default' do
         FactoryGirl.create(:word)
 
-        expect(subject.fetch('W').first).to be_a Word
+        expect(subject.fetch('D').first).to be_a Word
       end
     end
   end

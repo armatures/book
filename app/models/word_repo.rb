@@ -5,9 +5,10 @@ class WordRepo
 
   def fetch(expression)
     consonant_group = ' ([\D]*?) '
-    expression = /#{expression.upcase.gsub('.', consonant_group)}/
+    subbed_expression = expression.upcase.gsub('.', consonant_group)
+    regex = /#{subbed_expression}\z/
     collection.select do |word|
-      word.pronunciation[expression]
+      word.pronunciation[regex]
     end
   end
 
