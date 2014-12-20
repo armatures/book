@@ -24,8 +24,8 @@ describe Word do
 
 	describe '#sounds' do
 		it 'returns sounds (chunks of a pronunciation) with a #vowel? method' do
-			expect(word.sounds[0].vowel?).to be_false
-			expect(word.sounds[1].vowel?).to be_true
+			expect(word.sounds[0].vowel?).to be_falsy
+			expect(word.sounds[1].vowel?).to be_truthy
 		end
 	end
 
