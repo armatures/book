@@ -25,6 +25,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'factory_girl'
+  gem 'guard-ctags-bundler'
+  gem 'rb-readline'
+  gem 'awesome_print'
 end
 
 # Use ActiveModel has_secure_password
