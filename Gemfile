@@ -5,8 +5,7 @@ gem 'rails'
 gem 'pg'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'coffee-rails'
-gem 'jquery-rails'
+gem 'bower-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
