@@ -1,0 +1,1 @@
+rhymebook = angular.module('rhymebook',[]);
