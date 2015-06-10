@@ -1,1 +1,1 @@
-rhymebook = angular.module('rhymebook',[]);
+rhymebook = angular.module('rhymebook',['restangular']);

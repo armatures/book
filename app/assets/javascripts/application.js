@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/angular
+//= require restangular
+//= require lodash
 //= require_tree .
