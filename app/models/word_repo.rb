@@ -7,6 +7,7 @@ class WordRepo
     consonant_group = ' ([\D]*?) '
     subbed_expression = expression.upcase.gsub('.', consonant_group)
     regex = /#{subbed_expression}\z/
+
     collection.select do |word|
       word.pronunciation[regex]
     end

@@ -1,11 +1,14 @@
 'use strict';
 
-angular.module('rhymebook').controller('RhymesController',function($scope, Restangular){
+angular.module('rhymebook').controller('RhymesController',['$scope','Restangular',function($scope, Restangular){
       var vm = this;
-      vm.rhymes = function(term){
-        Restangular.all('rhymes/' + term).getList().then(function(response){
-          vm.rhymes = response;
+      vm.rhymes = function(){
+        vm.currentSearch = $scope.searchTerm;
+        Restangular.all('rhyme_searches').post(
+          {'term': vm.currentSearch}
+        ).then(function(response){
+          vm.rhymes = response['rhymes'];
           console.log('response!: ' + response);
         });
       }
-});
+}]);
