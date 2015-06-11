@@ -14,6 +14,7 @@ RailsRhymebook::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :rhyme_searches
+    resources :word_searches
 
   # Example resource route with options:
   #   resources :products do
