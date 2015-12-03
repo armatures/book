@@ -5,7 +5,6 @@ angular.module('rhymebook').controller('RhymesController',['$scope','Restangular
       vm.rhymes = function(){
         vm.currentSearch = $scope.searchTerm;
         if(vm.currentSearch[0] === '?'){
-          //debugger;
           var searchSpelling = vm.currentSearch.slice(1,vm.currentSearch.length)
           console.log('search term is ' + searchSpelling);
           Restangular.all('word_searches').post(
@@ -22,4 +21,7 @@ angular.module('rhymebook').controller('RhymesController',['$scope','Restangular
           });
         }
       }
+      Restangular.all('phonemes').getList().then(function(phonemes){
+        vm.allPhonemes = phonemes;
+      });
 }]);
