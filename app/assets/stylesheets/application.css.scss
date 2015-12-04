@@ -15,3 +15,20 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
+$blue: #0E84A1;
+$maroon: #671934;
+$darkBlue: #0E4658;
+$green: #8B860A;
+$darkGreen: #A8981B;
+
+.phonemeContainer {
+  color: $blue;
+  background-color: $darkBlue;
+  display: flex;
+}
+
+.phonemeColumn {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+}

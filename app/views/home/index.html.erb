@@ -17,10 +17,12 @@
     </div>
     <div>lead with a "?" to view a word's pronunciation</div>
     <div>"." is a group of consonants</div>
-    <div>
-      <%# ng-controller="PhonemeController as phonemeController"> %>
-      <div>possible phonemes:</div>
-      <div ng-repeat="phoneme in ctrl.allPhonemes">{{ phoneme }}</div>
+    <div class="phonemeContainer">possible phonemes by phonemeType:
+      <div>
+        <div class="phonemeColumn" ng-repeat="phonemeType in ctrl.phonemesByType">
+          <h4>{{ phonemeType[0].type }}</h4>
+          <div ng-repeat="phoneme in phonemeType">{{ phoneme.spelling }}</div>
+        </div>
     </div>
     <div ng-repeat='rhyme in ctrl.rhymeResults'>
       <h4>{{rhyme.spelling}}</h4>

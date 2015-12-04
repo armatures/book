@@ -22,6 +22,8 @@ angular.module('rhymebook').controller('RhymesController',['$scope','Restangular
         }
       }
       Restangular.all('phonemes').getList().then(function(phonemes){
-        vm.allPhonemes = phonemes;
+        vm.phonemesByType = _.groupBy(phonemes, function(phoneme){
+          return phoneme.type;
+        });
       });
 }]);

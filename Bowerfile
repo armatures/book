@@ -1,5 +1,6 @@
 asset 'angular'
 asset 'bootstrap-sass-official'
 asset 'restangular'
+asset 'underscore'
 
 # vim: ft=ruby
