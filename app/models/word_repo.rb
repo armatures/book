@@ -4,7 +4,6 @@ class WordRepo
   end
 
   def fetch(expression)
-    consonant_group = ' ([\D]*?) '
     subbed_expression = expression.upcase.gsub('.', consonant_group)
     regex = /#{subbed_expression}\z/
 
@@ -13,7 +12,12 @@ class WordRepo
     end
   end
 
-  def collection
-    @collection || Word
-  end
+  private
+    def consonant_group
+      ' ([\D]*?) '
+    end
+
+    def collection
+      @collection || Word
+    end
 end
