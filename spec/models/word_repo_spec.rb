@@ -32,5 +32,13 @@ describe WordRepo do
         expect(subject.fetch('D').first).to be_a Word
       end
     end
+
+    it 'treats _s as a STOP phoneme' do
+      pet = double(:pet, pronunciation: 'P EH1 T')
+      heck = double(:heck, pronunciation: 'HH EH1 K')
+      lel_word = double(:lel_word, pronunciation: 'L EH1 L')
+      words = [pet, heck, lel_word]
+      expect(WordRepo.new(collection: words).fetch('EH1 _s')).to eq([pet, heck])
+    end
   end
 end
