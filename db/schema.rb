@@ -11,26 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219040715) do
+ActiveRecord::Schema.define(version: 20151206003253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "phoneme_types", force: true do |t|
-    t.string "phoneme_type"
+  create_table "phoneme_types", force: :cascade do |t|
+    t.string "phoneme_type", limit: 255
   end
 
-  create_table "phonemes", force: true do |t|
-    t.string  "spelling"
+  create_table "phonemes", force: :cascade do |t|
+    t.string  "spelling",        limit: 255
     t.integer "phoneme_type_id"
   end
 
-  create_table "words", force: true do |t|
-    t.string   "spelling"
-    t.string   "pronunciation"
+  create_table "words", force: :cascade do |t|
+    t.string   "spelling",      limit: 255
+    t.string   "pronunciation", limit: 255
     t.integer  "syllables"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "words", ["pronunciation"], name: "index_words_on_pronunciation", using: :btree
 
 end
